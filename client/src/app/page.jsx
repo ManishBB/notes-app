@@ -161,7 +161,10 @@ const AddNotePopup = ({ isOpen, onClose, onCreate }) => {
 const Homepage = () => {
     const router = useRouter();
 
-    const isUserLoggedIn = localStorage.getItem("isLoggedIn");
+    if (typeof window !== "undefined") {
+        // now access your localStorage
+        const isUserLoggedIn = localStorage.getItem("isLoggedIn");
+    }
 
     if (!isUserLoggedIn) router.push("/login");
 
