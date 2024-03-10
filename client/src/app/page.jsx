@@ -130,13 +130,13 @@ const AddNotePopup = ({ isOpen, onClose, onCreate }) => {
                         placeholder="Title"
                         value={newTitle}
                         onChange={(e) => setNewTitle(e.target.value)}
-                        className="w-full border-gray-300 py-2 px-4 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 mb-4"
+                        className="w-full text-black border-gray-300 py-2 px-4 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 mb-4"
                     />
                     <textarea
                         placeholder="Description"
                         value={newDescription}
                         onChange={(e) => setNewDescription(e.target.value)}
-                        className="w-full border-gray-300 py-2 px-4 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 h-20 resize-none mb-4"
+                        className="w-full text-black border-gray-300 py-2 px-4 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 h-20 resize-none mb-4"
                     />
                     <div className="flex justify-end">
                         <button
@@ -240,8 +240,8 @@ const Homepage = () => {
             const response = await axios.post(
                 `${conf.baseUrl}/notes/create-note`,
                 {
-                    title: newTitle,
-                    description: newDescription,
+                    noteTitle: newTitle,
+                    noteDescription: newDescription,
                 },
                 {
                     headers: {
