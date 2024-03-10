@@ -1,5 +1,5 @@
 const conf = {
-    baseUrl: "http://localhost:8000/api/v1",
+    baseUrl: "https://dark-puce-trout-garb.cyclic.app/api/v1",
     emailRegex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
 };
 

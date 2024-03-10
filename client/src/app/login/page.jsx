@@ -111,7 +111,7 @@ const LoginPage = () => {
                         className="text-center cursor-pointer"
                         onClick={handleRegister}
                     >
-                        Don't have an account? Register
+                        Don&apos;t have an account? Register
                     </p>
                 </form>
             </div>
