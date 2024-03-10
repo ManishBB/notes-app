@@ -47,15 +47,17 @@ const LoginPage = () => {
 
             console.log(response.data);
 
-            localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem(
-                "userData",
-                JSON.stringify(response.data.loggedInUser)
-            );
-            localStorage.setItem(
-                "accessToken",
-                JSON.stringify(response.data.accessToken)
-            );
+            if (typeof window !== "undefined") {
+                localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem(
+                    "userData",
+                    JSON.stringify(response.data.loggedInUser)
+                );
+                localStorage.setItem(
+                    "accessToken",
+                    JSON.stringify(response.data.accessToken)
+                );
+            }
 
             router.push("/");
 

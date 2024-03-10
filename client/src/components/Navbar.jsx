@@ -5,11 +5,16 @@ import React, { useEffect } from "react";
 function Navbar() {
     const router = useRouter();
 
-    const isUserLoggedIn = localStorage.getItem("isLoggedIn");
+    const isUserLoggedIn =
+        typeof window !== "undefined" ? localStorage.getItem("isLoggedIn") : "";
 
     const handleLogout = async () => {
-        localStorage.removeItem("isLoggedIn");
-        localStorage.removeItem("userData");
+        typeof window !== "undefined"
+            ? localStorage.removeItem("isLoggedIn")
+            : "";
+        typeof window !== "undefined"
+            ? localStorage.removeItem("userData")
+            : "";
         router.push("/login");
     };
 

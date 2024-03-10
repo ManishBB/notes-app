@@ -164,9 +164,8 @@ const Homepage = () => {
     if (typeof window !== "undefined") {
         // now access your localStorage
         const isUserLoggedIn = localStorage.getItem("isLoggedIn");
+        if (!isUserLoggedIn) router.push("/login");
     }
-
-    if (!isUserLoggedIn) router.push("/login");
 
     const [userNotes, setUserNotes] = useState();
     const [isAddPopupOpen, setIsAddPopupOpen] = useState(false);
@@ -175,7 +174,9 @@ const Homepage = () => {
         const notes = await axios.get(`${conf.baseUrl}/notes/get-all-notes`, {
             headers: {
                 Authorization: `Bearer ${JSON.parse(
-                    localStorage.getItem("accessToken")
+                    typeof window !== "undefined"
+                        ? localStorage.getItem("accessToken")
+                        : ""
                 )}`,
             },
         });
@@ -194,7 +195,9 @@ const Homepage = () => {
                 {
                     headers: {
                         Authorization: `Bearer ${JSON.parse(
-                            localStorage.getItem("accessToken")
+                            typeof window !== "undefined"
+                                ? localStorage.getItem("accessToken")
+                                : ""
                         )}`,
                     },
                 }
@@ -218,7 +221,9 @@ const Homepage = () => {
                 {
                     headers: {
                         Authorization: `Bearer ${JSON.parse(
-                            localStorage.getItem("accessToken")
+                            typeof window !== "undefined"
+                                ? localStorage.getItem("accessToken")
+                                : ""
                         )}`,
                     },
                 }
@@ -241,7 +246,9 @@ const Homepage = () => {
                 {
                     headers: {
                         Authorization: `Bearer ${JSON.parse(
-                            localStorage.getItem("accessToken")
+                            typeof window !== "undefined"
+                                ? localStorage.getItem("accessToken")
+                                : ""
                         )}`,
                     },
                 }
